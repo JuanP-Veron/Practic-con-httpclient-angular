@@ -1,0 +1,47 @@
+<p>post-form works!</p>
+
+<form [formGroup]="postForm">
+  <fieldset>
+    <label for="userId">ID del Usuario</label>
+    <input type="text" id="userId" formControlName="userId">
+    <div *ngIf="postForm.get('userId')?.invalid && postForm.get('userId')?.touched">
+      <small class="error">Este campo es requerido</small>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="id">ID del Post</label>
+    <input type="text" id="id" formControlName="id">
+    <div *ngIf="postForm.get('id')?.invalid && postForm.get('id')?.touched">
+      <small class="error">Este campo es requerido</small>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="title">Título</label>
+    <input type="text" id="title" formControlName="title">
+    <div *ngIf="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+      <small class="error">Este campo es requerido</small>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="body">Contenido</label>
+    <textarea id="body" formControlName="body"></textarea>
+    <div *ngIf="postForm.get('body')?.invalid && postForm.get('body')?.touched">
+      <small class="error">Este campo es requerido</small>
+    </div>
+  </fieldset>
+
+  <fieldset formGroupName="address">
+    <legend>Dirección</legend>
+
+    <label for="street">Calle</label>
+    <input type="text" id="street" formControlName="street">
+
+    <label for="city">Ciudad</label>
+    <input type="text" id="city" formControlName="city">
+  </fieldset>
+
+  <button [disabled]="postForm.invalid" (click)="postValor()">Enviar</button>
+</form>

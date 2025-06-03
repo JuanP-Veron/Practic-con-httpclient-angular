@@ -1,0 +1,15 @@
+
+<ul>
+    @for (post of postsServicios.posts; track $index) {
+        <li>
+            <a [routerLink]="['/post', post.id]">
+            
+            <h3>{{ post.title }}</h3>
+            <h3>{{ post.address }}</h3>
+            <button (click)="deletePost(post.id)">eliminar</button>
+            <hr>
+            
+            </a>
+        </li>
+    }
+</ul>
